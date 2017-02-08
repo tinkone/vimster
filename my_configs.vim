@@ -16,6 +16,7 @@ autocmd VimEnter * wincmd p
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+" http://stackoverflow.com/questions/6411979/compiling-java-code-in-vim-more-efficiently
 map <F5> :call CompileRunGcc()<CR>
 func! CompileRunGcc()
     exec "w"
@@ -44,5 +45,5 @@ func! CompileRunGcc()
 endfunc
 
 
-
+" run script
 nnoremap <leader>rr :w<cr>:!%:p:h/r.sh<cr>
